@@ -1,0 +1,9 @@
+---
+layout:     post
+title:      Easy Introduction to BERT
+author:     Jexus
+tags: 		NLP deep_learning
+subtitle:   paper review — "BERT -- Pre-training of Deep Bidirectional Transformers for Language Understanding"
+category:  note
+---
+
