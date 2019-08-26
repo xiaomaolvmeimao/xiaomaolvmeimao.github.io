@@ -175,7 +175,7 @@ hr.small {
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading h1,
   .intro-header .page-heading h1 {
-    font-size: 80px;
+    font-size: 60px;
   }
 }
 .intro-header .post-heading h1 {
@@ -244,7 +244,7 @@ hr.small {
 }
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
-    font-size: 36px;
+    font-size: 26px;
   }
 }
 .section-heading {
