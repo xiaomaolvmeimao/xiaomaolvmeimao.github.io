@@ -13,7 +13,7 @@ headercolor: "#FFFFFF"
 logo: img/logos/Project-Pages-New-Logo-Inverted.png
 
 # Tertiary Parameters
-github_username:  voidism
+github_username:  xiaomaolvmeimao
 project_repository: 
 disqus_shortname: jexus-markdown
 g-analytics: UA-116076474-1
@@ -41,7 +41,7 @@ defaults:
 # Prose Settings
 prose:
   ignore: ['feed.xml', '/stl', '/ply', '/js', '/plugin', '/lib', '/projectors', '_layouts', '/_includes', 'Gruntfile.js', 'package.json', 'proselinks.jsonp', 'ppanchor.matin', '.gitignore', '/search', '/css', '/img', 'favicon.png','_data/*.json','LICENSES.md','README.md','colorscheme.scss','members.html','mentions.html','index.html']
-  siteurl: "https://voidism.github.io/"
+  siteurl: "https://xiaomaolvmeimao.github.io/"
   ispp: true
   media: 'img'
   metadata:
