@@ -29,11 +29,11 @@ Erwin对数据模型提供两种视——逻辑视图、物理视图。Erwin对�
 
 
 ## 三、操作指南
-	1.点击File->New—>OK(默认，也可以选择已有模板)
-	2.选中Subject Areas—>右键NEW->properties输入主题域名称
-	3.切换到要编辑的主题域，选中Subject Areas—>Switch to
-		* 在非<Main Subject Area>中的主题域中创建的实体都只保留数据实体和关系的引用，我们可以从指定的主题域中进行删除操作，但其实只是删除对数据实体的引用，数据实体本身还存在于数据模型中。
-		* 选择“Remove them from current subject area”则只是从当前的主题区域删除该数据实体的引用，对应的数据实体删除后，不会在该主题区域出现，但是该数据主题还存在于数据模型中，可以被其他主题区域所引用
-		* 选择“Delete them from the entire model”则是从真正数据模型中删除，该数据实体在所有被引用的主题区域中的引用也将被删除。
-		![Image.png](https://imgur.com/lZaCFMj)
-	4.选择Entities到指定主题域中、在主题域中新建数据实体
+1.点击File->New—>OK(默认，也可以选择已有模板)
+2.选中Subject Areas—>右键NEW->properties输入主题域名称
+3.切换到要编辑的主题域，选中Subject Areas—>Switch to
+* 在非<Main Subject Area>中的主题域中创建的实体都只保留数据实体和关系的引用，我们可以从指定的主题域中进行删除操作，但其实只是删除对数据实体的引用，数据实体本身还存在于数据模型中。
+* 选择“Remove them from current subject area”则只是从当前的主题区域删除该数据实体的引用，对应的数据实体删除后，不会在该主题区域出现，但是该数据主题还存在于数据模型中，可以被其他主题区域所引用
+* 选择“Delete them from the entire model”则是从真正数据模型中删除，该数据实体在所有被引用的主题区域中的引用也将被删除。
+![Image.png](https://imgur.com/lZaCFMj)
+4.选择Entities到指定主题域中、在主题域中新建数据实体
