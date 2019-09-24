@@ -17,11 +17,11 @@ Erwin对数据模型提供两种视——逻辑视图、物理视图。Erwin对�
 ### 1.逻辑视图（Logical）
 是以业务需求的概念对数据模型进行描述。通俗的说，在逻辑视图中我们可以用中文或描述性的语言来描述数据实体（表）和数据实体的属性（字段）。
 
-![Image.png](https://imgur.com/undefined)
+![logical.png](https://i.loli.net/2019/09/25/uVCLeg8z75Yl1Rs.png)
 
 ### 2.物理视图（Physical）
 物理视图与逻辑视图一一对应，物理视图是针对一种具体的数据库进行逻辑视图的物理映射。通俗的说，在物理视图中我们必须为每一个在逻辑视图中出现的数据实体（表）指定一个可被具体数据库接纳的表名称。
-![Image.png](https://imgur.com/3hLi42y)
+![physical.png](https://i.loli.net/2019/09/25/Dwqr4CRmTOfXhiM.png)
 
 ## 二、主题域（Subject Area）
 * 主主题域<Main Subject Area>展现了整个数据模型，是不能删除的。
@@ -35,5 +35,5 @@ Erwin对数据模型提供两种视——逻辑视图、物理视图。Erwin对�
 * 在非<Main Subject Area>中的主题域中创建的实体都只保留数据实体和关系的引用，我们可以从指定的主题域中进行删除操作，但其实只是删除对数据实体的引用，数据实体本身还存在于数据模型中。
 * 选择“Remove them from current subject area”则只是从当前的主题区域删除该数据实体的引用，对应的数据实体删除后，不会在该主题区域出现，但是该数据主题还存在于数据模型中，可以被其他主题区域所引用
 * 选择“Delete them from the entire model”则是从真正数据模型中删除，该数据实体在所有被引用的主题区域中的引用也将被删除。
-![Image.png](https://imgur.com/lZaCFMj)
+![del_subject.png](https://i.loli.net/2019/09/25/woN4BmGPeF3TJRO.png)
 4.选择Entities到指定主题域中、在主题域中新建数据实体
