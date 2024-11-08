@@ -74,8 +74,9 @@ Prompts："Design an adrenaline-pumping advertisement for an action shooter game
 ***
 **Contact Information:** For inquiries, please contact us via Telegram at [@acghjj_brown].
 <ul>
-  <li><img src="https://s2.loli.net/2024/11/07/UWNgJOD1CcwZ2pi.png" alt="Telegram Icon" style="width:20px; height:auto;" /> Telegram：@acghjj_brown</li>
-  <li><img src="https://s2.loli.net/2024/11/07/nl1IbWQpZevHiBz.png" alt="Email Icon" style="width:20px; height:auto;" /> Email：lukewang4592@163.com</li>
+<img src="https://s2.loli.net/2024/11/07/UWNgJOD1CcwZ2pi.png" alt="Telegram Icon" style="width:20px; height:auto;" /> Telegram：@acghjj_brown
+
+<img src="https://s2.loli.net/2024/11/07/nl1IbWQpZevHiBz.png" alt="Email Icon" style="width:20px; height:auto;" /> Email：lukewang4592@163.com
 </ul>
 
 **Payment Methods:**
