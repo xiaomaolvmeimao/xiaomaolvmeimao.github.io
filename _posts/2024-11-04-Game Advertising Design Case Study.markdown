@@ -82,39 +82,41 @@ Prompts："Design an adrenaline-pumping advertisement for an action shooter game
 **Payment Methods:**
 Payments can be made through PayPal. Pricing for advertising design services varies based on project complexity and scope. For specific quotes, please reach out to us directly.
 
-<div onclick="window.open('https://www.paypal.com/ncp/payment/BBRM7J8KNMR9A', '_blank')" style="display:inline-grid; justify-items:center; align-content:start; gap:0.5rem; cursor: pointer;">
-  <style>
-    .paypal-button {
-      text-align: center;
-      border: none;
-      border-radius: 1.5rem;
-      min-width: 14rem;
-      padding: 0 2.5rem;
-      height: 3rem;
-      font-weight: bold;
-      background-color: #FFD140;
-      color: #000000;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      font-size: 1.25rem;
-      line-height: 1.5rem;
-    }
-    .support-text {
-      font-size: 0.8rem;
-      color: #666666;
-    }
-    .paypal-logo {
-      height: 1.25rem;
-      vertical-align: middle;
-    }
-  </style>
-  <div class="paypal-button">立即购买</div>
+<style>
+  .paypal-button {
+    display: inline-block;
+    text-align: center;
+    border: none;
+    border-radius: 1.5rem;
+    min-width: 14rem; /* 增大按钮宽度 */
+    padding: 0 2.5rem; /* 增大按钮内边距 */
+    height: 3rem; /* 增大按钮高度 */
+    font-weight: bold;
+    background-color: #FFD140;
+    color: #000000;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.25rem; /* 增大按钮字体 */
+    line-height: 3rem;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .support-text {
+    font-size: 0.8rem; /* 缩小技术支持文字 */
+    color: #666666;
+  }
+  .paypal-logo {
+    height: 1.25rem; /* 增大 PayPal logo 高度 */
+    vertical-align: middle;
+  }
+</style>
+
+<a href="https://www.paypal.com/ncp/payment/BBRM7J8KNMR9A" target="_blank" class="paypal-button">
+  立即购买
+</a>
+<div style="display:inline-grid; justify-items:center; align-content:start; gap:0.5rem; text-align:center;">
   <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
   <section>
     <span class="support-text">技术支持提供方：</span>
     <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" class="paypal-logo" />
   </section>
 </div>
-
-<a href="https://www.paypal.com/ncp/payment/BBRM7J8KNMR9A" target="_blank" class="paypal-button" style="display: inline-block; text-align: center; border-radius: 1.5rem; min-width: 14rem; padding: 0 2.5rem; height: 3rem; font-weight: bold; background-color: #FFD140; color: #000000; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 1.25rem; line-height: 3rem; cursor: pointer; text-decoration: none;">
-  立即购买
-</a>
