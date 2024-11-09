@@ -79,3 +79,29 @@ Payments can be made through PayPal. Pricing for advertising design services var
   <img src=https://www.paypalobjects.com/images/Debit_Credit_APM.svg alt="cards" />
   <section> 技术支持提供方： <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
 </form>
+
+<form action="https://www.paypal.com/ncp/payment/BBRM7J8KNMR9A" method="post" target="_top" style="display:inline-grid; justify-items:center; align-content:start; gap:0.5rem;">
+  <style>
+    .paypal-button {
+      text-align: center;
+      border: none;
+      border-radius: 1.5rem;
+      min-width: 11.625rem;
+      padding: 0 2rem;
+      height: 2.625rem;
+      font-weight: bold;
+      background-color: #FFD140;
+      color: #000000;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1rem;
+      line-height: 1.25rem;
+      cursor: pointer;
+    }
+  </style>
+  <input class="paypal-button" type="submit" value="立即购买" />
+  <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+  <section>
+    技术支持提供方：
+    <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem; vertical-align:middle;" />
+  </section>
+</form>
