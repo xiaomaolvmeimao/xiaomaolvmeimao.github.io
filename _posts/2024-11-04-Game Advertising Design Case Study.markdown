@@ -82,7 +82,7 @@ Prompts："Design an adrenaline-pumping advertisement for an action shooter game
 **Payment Methods:**
 Payments can be made through PayPal. Pricing for advertising design services varies based on project complexity and scope. For specific quotes, please reach out to us directly.
 
-<form action="https://www.paypal.com/ncp/payment/BBRM7J8KNMR9A" method="post" target="_top" style="display:inline-grid; justify-items:center; align-content:start; gap:0.5rem;">
+<a href="https://www.paypal.com/ncp/payment/BBRM7J8KNMR9A" target="_blank" style="display:inline-grid; justify-items:center; align-content:start; gap:0.5rem; text-decoration: none;">
   <style>
     .paypal-button {
       text-align: center;
@@ -108,10 +108,10 @@ Payments can be made through PayPal. Pricing for advertising design services var
       vertical-align: middle;
     }
   </style>
-  <input class="paypal-button" type="submit" value="立即购买" />
+  <button class="paypal-button">立即购买</button>
   <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
   <section>
     <span class="support-text">技术支持提供方：</span>
     <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" class="paypal-logo" />
   </section>
-</form>
+</a>
