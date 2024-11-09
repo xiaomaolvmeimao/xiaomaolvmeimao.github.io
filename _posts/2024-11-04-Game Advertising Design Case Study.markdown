@@ -82,3 +82,36 @@ Prompts："Design an adrenaline-pumping advertisement for an action shooter game
 **Payment Methods:**
 Payments can be made through PayPal. Pricing for advertising design services varies based on project complexity and scope. For specific quotes, please reach out to us directly.
 
+<form action="https://www.paypal.com/ncp/payment/BBRM7J8KNMR9A" method="post" target="_top" style="display:inline-grid; justify-items:center; align-content:start; gap:0.5rem;">
+  <style>
+    .paypal-button {
+      text-align: center;
+      border: none;
+      border-radius: 1.5rem;
+      min-width: 14rem; /* 增大按钮宽度 */
+      padding: 0 2.5rem; /* 增大按钮内边距 */
+      height: 3rem; /* 增大按钮高度 */
+      font-weight: bold;
+      background-color: #FFD140;
+      color: #000000;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.25rem; /* 增大按钮字体 */
+      line-height: 1.5rem;
+      cursor: pointer;
+    }
+    .support-text {
+      font-size: 0.8rem; /* 缩小技术支持文字 */
+      color: #666666;
+    }
+    .paypal-logo {
+      height: 1.25rem; /* 增大 PayPal logo 高度 */
+      vertical-align: middle;
+    }
+  </style>
+  <input class="paypal-button" type="submit" value="立即购买" />
+  <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+  <section>
+    <span class="support-text">技术支持提供方：</span>
+    <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" class="paypal-logo" />
+  </section>
+</form>
