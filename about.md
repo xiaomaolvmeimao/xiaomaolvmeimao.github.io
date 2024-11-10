@@ -5,11 +5,15 @@ description: "Who am I?"
 header-img: "img/home-bg.jpg"
 ---
 <!--
-![Jexus](../img/Jexus.jpg)# Yung-Sung Chuang  
-Undergraduate Student / Electrical Engineering
+![Jexus](../img/Jexus1.jpg)# Luke  
+Data Scientist / Analyst / Engineer
 
-Hi! My name is Yung-Sung Chuang, a student who major in electrical engineering in National Taiwan University.
-I will share some notes or articles during my study. Thanks for reading and taking the time to comment :)
+Hey there! 👋 I'm Luke, a data enthusiast with a deep-rooted background in some of the most exciting tech ecosystems in the world—I've had the privilege to work with Alibaba, Baidu, and ByteDance, diving into the data-driven heartbeat of these companies. My journey in data spans several years, where I've been lucky enough to tackle complex challenges, build data solutions, and help shape strategies that drive real impact.
+
+Now, I'm focused on exploring the fascinating world of AI, where I'm diving into the latest advancements and figuring out how we can use these technologies to create even more innovative, impactful solutions.
+
+Thanks for stopping by, and feel free to connect if you want to chat data, AI, or anything tech!
+
 -->
 <hr>
 
