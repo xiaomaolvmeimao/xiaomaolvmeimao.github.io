@@ -1,11 +1,11 @@
 # Members
 
-- name: Yung-Sung Chuang
-  role: Undergraduate Student<br>
-  img: ../img/Jexus.jpg
+- name: Luke
+  role: Data Scientist / Analyst / Engineer <br>
+  img: ../img/Luke.jpg
   github: 
   gplus: 
-  bio: Hi! My name is Yung-Sung Chuang (莊永松), an undergrad student who major in electrical engineering in National Taiwan University. Here is my <a href="../CV/CV.pdf">Curriculum Vitae</a> and [Linkedin Page](https://www.linkedin.com/in/yschuang/).<br>I will share some notes or articles during my study. Thanks for reading and taking the time to comment :)
+  bio: Hey there! 👋 I'm Luke, a data enthusiast with a deep-rooted background in some of the most exciting tech ecosystems in the world—I've had the privilege to work with Alibaba, Baidu, and ByteDance, diving into the data-driven heartbeat of these companies. My journey in data spans several years, where I've been lucky enough to tackle complex challenges, build data solutions, and help shape strategies that drive real impact.<br>Now, I'm focused on exploring the fascinating world of AI, where I'm diving into the latest advancements and figuring out how we can use these technologies to create even more innovative, impactful solutions.<br>Thanks for stopping by, and feel free to connect if you want to chat data, AI, or anything tech!
   url: 
   visible: True
 
