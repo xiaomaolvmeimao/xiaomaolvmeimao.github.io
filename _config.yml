@@ -21,7 +21,8 @@ altmetric: true
 
 # Build settings
 plugins: [jekyll-paginate]
-markdown: kramdown
+# markdown: kramdown
+markdown: mermaid
 highlighter: rouge
 permalink: pretty
 paginate: 10
