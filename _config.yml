@@ -22,7 +22,6 @@ altmetric: true
 # Build settings
 plugins: [jekyll-paginate]
 markdown: kramdown
-# markdown: mermaid
 highlighter: rouge
 permalink: pretty
 paginate: 10
@@ -31,6 +30,9 @@ exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 mermaid:
   src: /js/mermaid.min.js
 
+plugins:
+  - jekyll-paginate
+  - jekyll-mermaid
 
 # Jekyll Settings
 
