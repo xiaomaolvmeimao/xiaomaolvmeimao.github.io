@@ -27,9 +27,6 @@ permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
-mermaid:
-  src: /js/mermaid.min.js
-
 plugins:
   - jekyll-paginate
   - jekyll-mermaid
