@@ -462,3 +462,52 @@ hr.style-one {
     background: #333;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
+
+.col-lg-10 table,
+.col-lg-10 th,
+.col-lg-10 td {
+  font-size: 12px !important;
+} /* 表格字体大小 */
+
+
+/* 让第1列最小宽度为100px，其余列自适应 */
+table {
+  width: 100%;
+  table-layout: auto;
+}
+table th {
+  font-weight: 700;   /* 表格标题加粗 */
+}
+table th:first-child,
+table td:first-child {
+  min-width: 120px;
+  /* 或者用 width: 180px; 试试效果 */
+  /* white-space: nowrap;  // 如果你想彻底不换行可以加上 */
+}
+
+
+
+
+.float-right, .float-right * {
+  font-size: 11px !important; /* 浮窗字体大小 */
+}
+
+.float-right {
+  width: 100px;      /* 浮窗宽度，可自定义 */
+  max-width: 15vw;   /* 防止太宽 */
+  /* height: 400px;  如果需要固定高度可以加 */
+  background: #fff;  /* 可选，背景色 */
+  border-radius: 10px; /* 可选，圆角 */
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15); /* 可选，阴影 */
+  padding: 0px 0px; /* 内边距 */
+  margin: 5px;      /* 外边距 */
+  z-index: 9999;     /* 保证浮窗在最上层 */
+} /*调整浮窗整体宽度/高度*/
+
+
+.float-right hr {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border: none;
+  border-top: 1.5px solid #eee; /* 颜色和粗细可自定义 */
+} /*调整横线（hr）间隔和样式*/
