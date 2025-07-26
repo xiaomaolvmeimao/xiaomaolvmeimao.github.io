@@ -76,3 +76,55 @@
     </div>
 </footer>
 
+<script>
+window.onload = function() {
+  setTimeout(function() {
+    // 生成目录内容
+    var headings = document.querySelectorAll('h1, h2');
+    var toc = document.getElementById('toc-list');
+    if (!toc) return;
+    var html = '<ul style="list-style:none;padding-left:0;">';
+    headings.forEach(function(heading, idx) {
+      // 只收集id不是'toc-heading-'开头的标题
+      if (heading.id && !heading.id.startsWith('toc-heading-')) {
+        var tag = heading.tagName.toLowerCase();
+        var indent = tag === 'h2' ? ' style="margin-left:1em;"' : '';
+        html += '<li'+indent+'><a href="#'+heading.id+'">'+heading.textContent+'</a></li>';
+      }
+    });
+    html += '</ul>';
+    toc.innerHTML = html;
+    
+    // 获取文章内容区域
+    var contentArea = document.querySelector('.col-lg-10.col-lg-offset-1.col-md-10.col-md-offset-1');
+    var tocFloat = document.getElementById('toc-float-left');
+    
+    if (tocFloat && contentArea) {
+      // 计算文章内容区域的顶部位置
+      var contentTop = contentArea.offsetTop;
+      
+      // 初始位置：与文章内容顶部对齐
+      tocFloat.style.position = 'absolute';
+      tocFloat.style.top = '0px';
+      tocFloat.style.left = '-230px';
+      
+      // 监听滚动事件
+      window.addEventListener('scroll', function() {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > contentTop) {
+          // 滚动超过文章内容区域时，固定在屏幕顶部
+          tocFloat.style.position = 'fixed';
+          tocFloat.style.top = '30px';
+          tocFloat.style.left = '35px';
+        } else {
+          // 在文章内容区域时，保持与内容对齐
+          tocFloat.style.position = 'absolute';
+          tocFloat.style.top = '0px';
+          tocFloat.style.left = '-230px';
+        }
+      });
+    }
+  }, 500);
+};
+</script>

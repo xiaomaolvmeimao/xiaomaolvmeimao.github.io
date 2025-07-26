@@ -438,13 +438,24 @@ div.float-right{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-div.float-left{
-    width:300px;
-    position:fixed;
-    left:0;
-	/* margin-top:50px; */
-	margin-left:2%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+/* 左侧目录浮窗样式优化 */
+.float-left {
+  width: 180px; /* 可根据需要调整宽度 */
+  position: absolute; /* 初始为absolute定位，与文章内容对齐 */
+  left: -230px; /* 向左偏移，避免与内容重叠 */
+  top: 0; /* 与父元素顶部对齐 */
+  background: none; /* 去除背景色 */
+  border-radius: 0; /* 去除圆角 */
+  box-shadow: none !important; /* 去除阴影 */
+  z-index: 9999;
+  font-size: 10px !important; /* 字体大小10px */
+  color: #888 !important; /* 字体颜色灰色 */
+  padding: 0;
+}
+
+.float-left, .float-left * {
+  font-size: 10px !important;
+  color: #888 !important;
 }
 
 @media (max-width: 1500px) {
@@ -483,7 +494,7 @@ table td:first-child {
   min-width: 120px;
   /* 或者用 width: 180px; 试试效果 */
   /* white-space: nowrap;  // 如果你想彻底不换行可以加上 */
-}
+} 
 
 
 
@@ -511,3 +522,5 @@ table td:first-child {
   border: none;
   border-top: 1.5px solid #eee; /* 颜色和粗细可自定义 */
 } /*调整横线（hr）间隔和样式*/
+
+
