@@ -502,11 +502,28 @@ table td:first-child {
 
 
 /* 文章内容区域固定布局 - 所有屏幕统一75%宽度，左侧20%，右侧5% */
-.post-content-container {
+.post-content-container,
+.col-lg-10.post-content-container,
+.col-md-10.post-content-container {
   width: 75% !important;
   margin-left: 15% !important;
   margin-right: 10% !important;
   position: relative;
+}
+
+/* 确保内容区域内的所有元素都遵循宽度限制 */
+.post-content-container * {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* 强制覆盖Bootstrap的col类宽度设置 */
+#content .container .row .col-lg-10.post-content-container,
+#content .container .row .col-md-10.post-content-container {
+  width: 75% !important;
+  margin-left: 15% !important;
+  margin-right: 10% !important;
+  flex: none !important;
 } 
 
 
