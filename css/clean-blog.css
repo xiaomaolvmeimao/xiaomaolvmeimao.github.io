@@ -502,13 +502,12 @@ table td:first-child {
 
 
 /* 文章内容区域固定布局 - 所有屏幕统一75%宽度，左侧20%，右侧5% */
-.post-content-container,
-.col-lg-10.post-content-container,
-.col-md-10.post-content-container {
+.post-content-container {
   width: 75% !important;
   margin-left: 15% !important;
   margin-right: 10% !important;
   position: relative;
+  box-sizing: border-box;
 }
 
 /* 确保内容区域内的所有元素都遵循宽度限制 */
@@ -516,35 +515,6 @@ table td:first-child {
   max-width: 100%;
   box-sizing: border-box;
 }
-
-/* 强制限制文章内容区域内的所有元素宽度 */
-.post-content-container table,
-.post-content-container img,
-.post-content-container pre,
-.post-content-container code,
-.post-content-container blockquote,
-.post-content-container div,
-.post-content-container p,
-.post-content-container h1,
-.post-content-container h2,
-.post-content-container h3,
-.post-content-container h4,
-.post-content-container h5,
-.post-content-container h6 {
-  max-width: 100% !important;
-  width: auto !important;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-}
-
-/* 强制覆盖Bootstrap的col类宽度设置 */
-#content .container .row .col-lg-10.post-content-container,
-#content .container .row .col-md-10.post-content-container {
-  width: 75% !important;
-  margin-left: 15% !important;
-  margin-right: 10% !important;
-  flex: none !important;
-} 
 
 
 .float-right, .float-right * {
