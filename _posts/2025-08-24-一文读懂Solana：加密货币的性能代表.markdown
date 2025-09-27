@@ -1,0 +1,501 @@
+---
+layout:     post
+title:      一文读懂Solana：加密货币的性能代表
+author:     Luke Wang
+tags: 		Crypto Solana SOL
+subtitle:   入门区块链
+category:  note
+
+---
+
+
+
+
+# 一、为什么关注 Solana？
+
+## 1.1 区块链发展的瓶颈与机遇
+
+自从比特币开启去中心化数字货币时代，以太坊又引入图灵完备的智能合约机制后，区块链逐渐从“价值转移工具”演化为“通用计算平台”，孕育出 DeFi、NFT、DAO、GameFi 等丰富应用场景。然而，随着用户与应用的快速增长，传统公链的架构局限性日益凸显，成为制约行业发展的关键瓶颈：
+
+- 性能受限：主流链普遍采用单线程执行与全节点验证，吞吐量仅在个位数到几十TPS，远低于互联网应用所需的上千乃至上万 TPS 水平。高峰期的链上拥堵，常导致交易延迟甚至失败。
+
+- 费用高昂：Gas 费随网络拥堵剧烈波动，在牛市期间，一次简单转账可能需要数十美元，复杂合约调用更是成本高企。这使得微支付、实时交易等场景几乎无法落地。
+
+- 体验不友好：普通用户需要自行管理私钥、调整Gas参数、理解链上确认机制，这种高门槛严重阻碍了大规模采用。
+
+- 开发成本高：智能合约开发涉及专有语言、安全审计、Gas优化等复杂环节，缺乏统一成熟的开发工具链，新开发者入门困难。
+
+这些限制不仅削弱了用户与开发者的积极性，也使得区块链难以真正承载大规模的金融、社交与应用生态。市场因此呼唤一种 既能保持去中心化与安全性，又能兼顾高性能、低成本与良好开发体验的下一代区块链基础设施。
+
+
+## 1.2 为什么 Solana 值得关注
+
+Solana诞生于 2017 年，由前高通（Qualcomm）工程师 Anatoly Yakovenko 发起，联手 Greg Fitzgerald、Stephen Akridge 等一批资深系统级工程师共同创建。Solana Labs 总部设于美国旧金山，致力于打造一个具备高吞吐、低延迟和强可扩展性的区块链基础设施
+
+Anatoly的灵感来源于他过去在高频通信和分布式系统的背景，尤其关注区块链系统中“全网时间同步难题”——即在一个无需信任的分布式网络中，如何达成对时间顺序的共识，从而提高效率、避免重复验证与广播带来的瓶颈。这一挑战最终促成了 Solana 的独特创新：Proof of History（PoH，历史证明）机制的提出
+
+Solana 主网在 2020 年 3 月正式上线，并迅速吸引了开发者、金融机构和加密社区的关注，成为近年来增长速度最快的 Layer 1 公链之一。Solana 是唯一在无需分片、无需 Layer 2 扩容的前提下，实现“高吞吐 + 低成本 + 极致用户体验”的L1公链 
+
+**1. 性能远超同类公链**：
+具备超过 60000+ TPS 的理论吞吐能力（实际 Mainnet Sustained TPS 也长期远高于其他公链）; 区块时间仅400ms，远快于以太坊、Polygon等; 不依赖 L2 扩容，主链可支撑主流应用
+> fig. TPS对比
+
+**2. 技术架构创新Proof of History**：
+独创时间戳机制（PoH）解决分布式网络中“同步性瓶颈”; 与传统 BFT 共识配合，大幅提高网络效率
+
+**3. 无需 Layer2或分片**：
+相比于以太坊必须依靠 L2 和 Rollup 体系才能扩展，Solana 选择了完全在 L1 上实现高性能。这样带来的结果是：所有应用、资产和账户都在一个统一状态树中，跨应用调用和组合性极强，无需桥接或等待 L2 最终确认
+
+**4. 开发者友好，Rust/TypeScript等通用语言+丰富工具链**：
+Solana 的智能合约开发语言是 Rust 和 C/C++（支持 SVM），非常适合Web2工程师迁移。相比其他链（如 Cosmos SDK 需要 Golang，Move 生态仍偏小众），Solana 的学习门槛更“现实主义”且配套工具完善
+
+**5. 生态繁荣且正在高速增长**
+Solana上的DePIN（如 Helium、Render）、DeFi（如 Jito、Phoenix）、NFT（如 Tensor）、SocialFi（如 Dialect、Backpack）正在迅速壮大。Solana 手机（Saga）、Solana Pay、Solana Actions、Blinks（嵌入 Twitter 等链接执行交易）等从链到底层设备和 Web体验的打通，是其他公链尚未覆盖的场景
+
+<div style="text-align:center; background-color:#f0f0f0; padding:6px 0;">
+  <b>表 Solana 在主流公链中的位置（如与 Ethereum、Polygon、Avalanche 的对比）</b>
+</div>
+<br>
+
+<center><b>表 Solana 在主流公链中的位置（如与 Ethereum、Polygon、Avalanche 的对比）</b></center>
+<br>
+
+<div style="text-align:center; background-color:#f0f0f0; padding:6px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <b>表 Solana 在主流公链中的位置（如与 Ethereum、Polygon、Avalanche 的对比）</b>
+</div>
+
+
+| 项目名称            | 主网时间 | 共识机制                | TPS（理论/实测）         | 交易费用 | 开发语言             | 链类别    | 受关注原因 / 优势                             |
+| --------------- | ---- | ------------------- | ------------------ | ---- | ---------------- | ------ | -------------------------------------- |
+| **Solana**      | 2020 | PoH + PoS           | ~50,000 / 2,000+   | 极低   | Rust             | 单体公链   | 极高性能 + 并行执行创新，Saga 手机、Firedancer增强生态信心 |
+| **Ethereum**    | 2015 | PoS                 | ~15 / ~13          | 高    | Solidity         | 单体公链   | 公链之王，生态最大，L2 扩容能力强，社区活跃                |
+| **BNB Chain**   | 2020 | PoSA                | ~300 / ~150        | 低    | Solidity         | 单体公链   | 与 Binance 绑定深，流量大，用户普及度高               |
+| **Polygon PoS** | 2020 | PoS                 | ~7,000 / ~50       | 低    | Solidity         | 单体公链   | 与品牌合作广泛，布局 zkEVM，迁移以太坊资产便利             |
+| **Base**        | 2023 | Rollup + ETH PoS    | ~2,000 / ~200      | 极低   | Solidity         | L2     | Coinbase 官方支持，增长迅猛，用户引流强               |
+| **Blast**       | 2024 | ETH 安全继承            | ~1,000 / ~200      | 低    | Solidity         | L2     | 空投激励机制强，原生利率创新，社交媒体热度高                 |
+| **Sui**         | 2023 | Narwhal + Bullshark | ~120,000 / 3,000+  | 极低   | Move             | 单体公链   | 面向游戏和资产可编程性，Move 安全模型受青睐               |
+| **Aptos**       | 2022 | AptosBFT            | ~160,000 / ~2,000  | 极低   | Move             | 单体公链   | 前Meta团队打造，关注度高，社区治理探索活跃                |
+| **Sei v2**      | 2023 | Twin-Turbo ABCI     | ~20,000 / ~1,000   | 极低   | CosmWasm         | 模块化链   | 原DEX链转型通用计算平台，EVM兼容性增强                 |
+| **Celestia**    | 2023 | PoS                 | -                  | -    | -                | 数据可用性层 | 代表模块化新范式，支持 Rollup DA 层需求              |
+| **Ton**         | 2020 | PoS                 | ~100,000+ / ~5,000 | 极低   | FunC / C++       | 分片链    | 与 Telegram 原生整合，C端触达力强，Bot支付创新         |
+| **Near**        | 2020 | Doomslug + PoS      | ~100,000 / ~2,000  | 极低   | Rust / JS        | 分片链    | 技术稳定 + AI生态战略转型 + ETH互通性强              |
+| **zkSync**      | 2023 | ZK + PoS            | ~2,000 / ~100      | 极低   | Solidity / zkDSL | L2     | ZK赛道核心力量，开发者友好，zkStack 模块化可拓展          |
+
+
+## 1.3 Solana 的发展历史与关键大事件
+
+| 时间         | 事件                           | 说明                                      |
+| ---------- | ------------------------------------ | --------------------------------------------- |
+| 2017 Q3    | Anatoly Yakovenko 撰写白皮书        | 设想以 **Proof of History（PoH）** 为核心的高性能链架构      |
+| 2018 Q1    | Solana Labs 成立            | 与 Greg Fitzgerald、Stephen Akridge 等联合创始人组建团队  |
+| 2020 Q1    | 主网 Beta 上线             | 提供基本交易功能和智能合约运行能力                     |
+| 2021 H1    | Solana 生态爆发          | 各类 DeFi、NFT、游戏协议大量部署，TVL 暴涨，吸引大量开发者           |
+| 2021 Sep   | Solana 首次宕机（17小时）   | 原因：交易洪峰（Raydium IDO），共识无法完成             |
+| 2022 Q1-Q4 | 多次网络中断         | 包括交易膨胀、Bot攻击，暴露共识机制设计挑战            |
+| 2022 Nov   | FTX 崩盘        | Solana 与 FTX/Alameda 绑定过深，市值腰斩，生态信心受挫         |
+| 2023       | 网络稳定性改进 + 重建信任        | 推出 QUIC 通讯、事务处理优化，多个L2桥梁上线          |
+| 2024       | Firedancer 客户端进入测试     | 由Jump Crypto开发的独立高性能验证器客户端，主打模块化、安全、高并发 |
+| 2024-2025  | “Solana Phone”、“Blinks” & Solana Pay | 积极布局消费级产品，目标成为“加密版苹果”         |
+
+
+# 二、Solana的核心概念
+
+## 2.1 时间与节奏：Tick、Slot、Epoch 🕰️ 
+- Tick：PoH 的基本单位，由持续的 SHA‑256 哈希运算产生。每经过一轮 tick，就代表逻辑时间的推进，每个 tick 约 12,500 次哈希运算
+
+- Slot：默认时长约为 400 毫秒。每个slot会分配给一个Leader节点以生成区块。一个 slot 通常含 64 个 tick
+
+- Epoch：更高级别的时间周期。每个 epoch 包含约 432,000 个 slots（约 2 天）。它用于进行 Leader 轮换、质押状态更新、奖励结算等网络治理操作
+
+## 2.2 共识与排序机制：PoH 与 Tower BFT(Byzantine Fault Tolerance) 🧠 
+- Proof of History (PoH)：Solana独创的高频延迟函数 (VDF) 机制，通过连续哈希构造时间链，使网络每个节点可以自生成“加密时钟”。节点可以用这个时间戳验证交易顺序，无需全网同步等待共识，极大减少通信开销，提高处理速度
+
+- Tower BFT：基于 PoH 时钟同步的拜占庭容错机制（PBFT 改进）。验证者按照PoH时间戳对Slot提案投票，并采用锁定机制防止重组，提升安全和确定性，同时减少通信次数
+
+
+## 2.3 传输与处理：RPC、Turbine、Cloudbreak、Pipelining、Sealevel 🚀 
+- RPC（Remote Procedure Call）节点：供客户端与区块链网络交互的API接口，如提交交易、查询状态、获取slot信息等。Solana Labs提供公共RPC服务，比如服务于社区的测试集群，但都有速率限制。**高性能私有RPC服务均由第三方服务商或独立运营者自行搭建和运营**，通过向开发者、项目方、Bot运营者等提供高性能、低延迟的链上访问服务来盈利。所以RPC节点不是Solana官方项目的一部分，不决定leader、不参加投票、不验证区块、不获得链上奖励
+
+- Gulf Stream是Solana的mempool-less交易流方式：RPC节点验证交易基本有效性后，通过Gulf Stream把交易转发给即将成为Leader的节点
+
+- UDP = User Datagram Protocol 用户数据报协议，是一种无连接、低开销的传输层协议。相比TCP，它不保证到达、不保证顺序、不重传，因此延迟更低；比如rpc->leader、leader->验证节点、验证节点间Gossip等均采用UDP数据包方式传输
+
+- TPU（Transaction Processing Unit）是Leader 节点内部的模块化交易处理流水线系统，用于接收、验证、执行、记录交易，并将其嵌入PoH 链中   
+  | 阶段名                 | 功能描述                                  |
+  | ------------------- | ------------------------------------- |
+  | **Fetch Stage**     | 接收来自客户端（通过RPC发送）的交易数据，存入本地leader节点的内存缓冲区     |
+  | **SigVerify Stage** | 并行验证交易签名合法性；无效交易直接丢弃                  |
+  | **Banking Stage**   | 执行交易（转账、合约调用等），锁定账户并更新状态              |
+  | **PoH Recorder**    | 把每笔交易的 hash 按顺序插入持续运行的 PoH 流，构造可验证时间链  |
+  | **Shredder**        | 将完整的 entry 数据切割成固定大小的 shreds，附纠删码     |
+  | **Broadcast Stage** | 通过 Turbine 协议把 shreds 广播给全网验证者        |
+
+- Turbine：Solana的分层区块传播协议，类似BitTorrent。Leader把区块切分为小片，通过树型分发路径发送数据，减少leader出站带宽压力，并支持Reed‑Solomon校验纠错，保证数据可用性与快速同步
+
+- TVU（Transaction Validation Unit）是验证者节点内部的模块化区块验证流水线系统，用于接收、校验、重构、重放 Leader 广播的区块数据，验证其正确性并据此投票确认分叉，最终实现网络共识
+  | 阶段名                          | 功能描述                                  |
+  | ---------------------------- | ------------------------------------- |
+  | **ShredFetch Stage**         | 从 Turbine/Gossip 拉取 leader 广播的 shreds |
+  | **ShredSigVerify Stage**     | 验证 shred 签名及 merkle 证明，丢弃篡改数据         |
+  | **Retransmit Stage**         | 按Turbine树形拓扑继续转发shreds，加速全网传播      |
+  | **ShredInsert Stage**        | 把合法 shreds 重组成完整区块并写入本地 Ledger        |
+  | **Replay Stage**             | 重放区块交易，验证状态转换，确认分叉，投票                 |
+  | **TransactionStatusService** | 更新交易状态缓存（确认/失败），供 RPC 查询              |
+
+- Cloudbreak：水平扩展的状态存储架构。Solana 将账户状态分布并行存储，支持多线程读写（CPU + SSD 并行），避免状态数据库成为 TPS 瓶颈，使账本读写效率成数倍提升
+
+- Pipelining：交易处理流水线优化，将验证、I/O、哈希运算、签名校验、写盘等步骤流水化，在硬件层面实现并行处理，提高吞吐效率
+
+- Sealevel：Solana 的并行智能合约运行时引擎，通过静态分析每个交易的账户读写依赖，将互不冲突的交易并行执行，提升 CPU 利用率和 TPS。同时与 pipelining 协同优化执行速度
+
+
+
+
+
+
+# 三、交易过程和工作原理：
+>本节内容涵盖了交易所有关注点：从交易提交、Gulf Stream 投递、Leader 选举、PoH 排序、TPU 打包、Turbine 广播、Tower BFT 验证，到交易确认的全过程。
+
+## 3.1 前置处理：Epoch、Slot、Leader的确定  
+在 Solana 区块链中，每笔交易的处理都建立在高度预先规划的基础上。在实际交易发生之前，网络已经完成了大量准备工作，最关键的包括Epoch和Slot的划分，以及为每个Slot指定Leader节点（即出块节点）
+- Epoch是Solana中的一个时间周期，当前大约为2～4天，每个Epoch内包含43.2w个Slot  
+- Slot是更细粒度的时间片，每个Slot约为400毫秒，仅允许一个Leader节点在该时间窗口内负责打包区块
+- Tick根本作用是“全网统一时间的证明”，每个tick约6.25ms。Leader在Slot内不断写交易（Entry），Entry会挂在Tick里某次Hash之后。Tick相当于“锚点”，能确定某批交易写入的先后顺序。如果没有Tick，交易顺序就会变得模糊，验证者难以统一确认
++++++++++++图
+
+**Leader 节点的选举机制：**  
+1. 候选资格：任何运行验证软件并满足质押门槛（约3–5万SOL）的节点，都可成为Leader候选者，进入候选池
+2. Leader Schedule的生成：在每个Epoch开始时，Solana会基于所有验证者的质押权重，通过一种可验证随机函数（VRF）驱动的加权随机算法，一次性生成整个Epoch的Leader排班表（Leader Schedule）。这个排班表为每个Slot指定一个出块Leader节点
+3. 出块机会分配：所有质押SOL的验证者节点都有机会通过PoS机制被选为Leader，质押权重越高，被选中为Leader的概率也越大，所获得的Slot数量也越多
+
+
+
+## 3.2 交易开始：Wallet → RPC → Leader TPU
+一笔交易的传播路径是先从用户的钱包开始，流向当前或即将成为Leader的验证者节点。这个过程通过Gulf Stream协议实现，最大程度减少了交易传播延迟，避免了传统mempool的拥堵问题。
+### 3.2.1 钱包 → (RPC API) → RPC 节点：
+用户通过如Phantom钱包发起交易，交易在本地由用户私钥签名后，调用sendTransaction方法发送给钱包连接的RPC节点
+
+### 3.2.2 RPC 节点 → (Gulf Stream协议) → Leader 节点：
+RPC节点接收交易后，并不参与共识或出块，而是负责将交易转发给**当前以及未来N个**即将成为 Leader 的验证者节点  
+```python
+通过Leader Schedule可以知道未来N个leader节点：
+current_leader  = leader_schedule[slot]
+next_leader     = leader_schedule[slot + 1]
+```
+
+“前置投递（forwarding）”机制的核心在于，RPC 节点利用 Solana 网络中事先公布的 Leader Schedule（在Epoch开始前已确定）来精准识别未来每个Slot的出块节点  
+- Leader Schedule 是公开透明的，可通过链上数据、Solana CLI 工具或 Geyser 插件等方式查询
+- 有了这个排班表，RPC节点无需额外共识验证，即可将交易作为UDP数据包直接发送至目标验证者节点的TPU（Transaction Processing Unit）端口
+
+与以太坊的对比：
+不同于以太坊将交易发送至一个全网共享的 mempool，Solana的Gulf Stream协议通过“点对点、定向推送”的方式，让即将出块的 Leader 节点提前接收到交易，大幅降低交易在出块前的排队和广播延迟
+
+## 3.3 Leader节点交易处理(TPU)：Fetch → SigVerify → Banking → PoH Recorder → Shredder → Broadcast
+
+假如Leader节点已经通过Gulf Stream提前收到了这笔交易，便会开始负责在当前Slot内打包并生成区块。
+它会从本地缓冲池中读取由RPC提前推送的交易，依次送入Transaction Processing Unit（TPU）的流水线进行处理（验证签名、账户锁定、执行、切片、广播）。在此过程中，每个已处理的交易结果会被按顺序嵌入到持续生成的PoH序列中，构成Solana的链式结构。完成一个Slot后，这些数据会通过 Turbine协议广播给其他验证者节点。
+
++图？？？？？
+>Leader使用 Proof‑of‑History (PoH) 生成一条不断链式的SHA‑256哈希链作为时间标记，也在交易中插入tick & blockhash  
+>PoH（Proof of History）是 Solana 的核心创新，类似一个“加密的时钟”，通过连续的 SHA-256 哈希计算生成一条不可篡改的时间序列。Leader 节点在出块时，会不断对上一个哈希值进行哈希计算，产生一个可验证的、有先后顺序的哈希链：
+
+```text
+hash_1 = SHA256(initial_seed)
+hash_2 = SHA256(hash_1)
+hash_3 = SHA256(hash_2)
+...
+```
+
+### 3.3.1 接收交易 (Fetch Stage)：由 RPC 推送到本地缓冲池
+Leader并不主动抓取交易，而是通过网络上的客户端RPC节点将用户交易请求推送至Leader节点的TPU接收模块（即 Fetch Stage），同3.2.2描述的过程。TPU的入口阶段负责监听和接收这些交易，并将其放入一个本地的缓冲池，等待后续验证该交易包
+- 监听多个UDP套接字端口，即接收来自 RPC 的交易数据包
+- 对交易包做初步过滤（去重、限速、格式校验）
+- 按类型将包分发至后续处理队列（普通交易 / 投票交易 / 待转发交易）  
+
+### 3.3.2 签名验证 (SigVerify)：确保其来源合法，未被篡改
+节点接收来自网络的交易集合，并通过批量签名验证（常用GPU加速）确认交易确实由声明的公钥持有者发起且未被篡改，从而筛除来源虚假的交易。已验证的交易将交由Banking Stage进行后续的余额检查和业务逻辑验证。
+- 批量验证交易签名（GPU加速）
+- 校验公钥、签名、消息hash是否匹配
+- 丢弃签名验证失败的交易
+
+### 3.3.3 交易执行 (working Bank执行)： 执行交易逻辑，更新账户状态
+
+在 Banking Stage，节点接收来自 SigVerify 阶段已通过签名验证的交易集合，并将其提交给当前Slot对应的Bank实例（运行时状态机）执行。Bank会依次检查账户锁以防止并发冲突、调用Sealevel并发引擎执行合约指令，并将账户余额与程序状态等变更写入AccountsDB（内存+磁盘存储）。最终输出每笔交易的执行结果（成功或失败）及对应的状态变更，并将这些记录打包进Entry，交由PoH Recorder记录到区块链时间轴中
+- 状态冲突检测：检查交易访问的账户是否被其他交易占用（账户锁机制）。
+- 合约执行：调用Sealevel并行运行虚拟机执行交易逻辑（如转账、程序调用等）。
+- 状态更新：将变更后的账户数据写入 AccountsDB。
+- 结果记录：将交易执行结果和状态变更打包进Entry，以便后续写入区块链
+
+在 Banking Stage，Leader节点会将通过签名验证的交易提交给当前Slot对应的working Bank（运行时状态机）处理。Working Bank的职责是执行交易逻辑，并产生交易的执行结果，主要过程包括：
+- 状态冲突检测：检查交易所需访问的账户是否已被其他交易占用（账户锁机制），避免并发冲突。
+- 合约执行：调用 Sealevel 并发执行引擎，运行交易中包含的指令（例如转账、合约调用、程序逻辑执行）。
+- 结果产出：为每笔交易生成执行结果（成功或失败），并记录对应的状态变更信息（如余额变化、合约数据修改等）。
+在这个阶段，重点是 计算和验证交易能否被正确执行，产出一组可供后续记录与传播的执行结果。
+
+
+关键概念说明：
+Bank：负责处理单个 Slot 内的所有交易逻辑，Slot 与 Bank 一一对应。
+AccountsDB：全网账户状态数据库，既存内存也落盘，用于存储余额、合约状态等信息。如果没有 AccountsDB，节点只能拿到交易日志，却无法继续执行新交易（因为没地方查余额/账户数据），下一个Slot的 working Bank无法创建，因为它依赖父 Bank 的账户状态。
+Sealevel 并发引擎：Solana 的并行交易执行框架，通过账户锁机制实现高并发处理。
+
+### 3.3.4 交易持久化 (PoH Recorder模块)： 将Bank已执行的交易结果，写入Entry(逻辑账本记录)
+>📌 注意：PoH Recorder 是 Leader 节点出块流程中的关键环节。它并不执行交易，而是负责将 Bank 已经执行完成但尚未入账的交易，组织成账本记录（Entry），并锚定到 PoH 链的时间线上
+
+**1）阶段视角：交易如何“真正入账”**  
+- **触发机制：** PoH Service持续推进hash计数，每到一个新的hash进度点，PoH Recorder会检查：
+  - 是否有 Bank 执行完的交易待写入？
+  - 是否到达 tick 边界？
+- **Entry 生成逻辑：** 
+  - 如果有交易待入账：PoH Recorder将这些交易按顺序打包成Entry，附上当前PoH的hash（时间戳）。
+  - 如果无交易：在tick边界依然会生成一个tick Entry（空交易Entry），作为全网同步的节拍锚点。
+- **结果：** 每个Entry都明确记录在 “第 N 次 hash 之后” 产生，从而形成连续、不可篡改的逻辑账本链。
+
+**2）角色视角：** PoH Recorder是Leader出块流程中一个关键组件，其核心职责是：
+- 交易持久化：把Bank输出的“已执行但未入账交易”写入Entry，相当于“挂载”到PoH时间线，**Entry结构：**
+  - previous_hash	:指向上一个 Entry 的 hash（保证链式结构）
+  - num_hashes :当前的 PoH tick hash（相当于时间戳）
+  - transactions :一批交易处理结果（通常多个）,由 Bank 提供，确保交易顺序
+- 时间戳锚定：借助PoH的单调哈希推进，为每个 Entry 提供全网统一的顺序和时间证明
+- 账本缓存准备：生成好的Entry会交给Shredder模块切分为Shreds
+
+### 3.3.5 数据切片 (Shredder模块)： 将Entry切片为Shred(用于网络广播)
+当Leader构建好一批Entry之后，这些Entry还不能直接在网络上传播。为了适应高速传输与分层广播的要求，它们会先经过Shredder模块的处理。  
+在这个阶段，Shredder会把连续的Entry数据拆解为更小的、固定大小的片段Shreds。每个Shred大约1232字节，便于在网络上传输时减少开销、降低丢包风险。拆解后的数据分为两类：
+- Data Shred：存放Entry的真实交易和执行结果。
+- Coding Shred：通过纠删码生成，用于在部分丢包的情况下恢复缺失的Data Shred，提高数据可用性。 
+  
+同时，Shredder会为每个Shred附带必要的元信息（如 Slot 编号、顺序索引、父 Slot 关系等），确保验证节点在接收后能够按顺序拼装，还原出完整的Entry序列  
+存储与广播并行：生成的Shreds一方面写入Leader本地的Blockstore（保证自身存档和后续回放），另一方面直接交给Broadcast Stage，进入Turbine网络拓扑进行分层传播。存储与广播基于同一份Shreds并行进行，不存在Leader自己存储的和广播出去的版本不一致的情况
+
+
+### 3.3.6 广播阶段 (Broadcast Stage)： 将Shred分层传播至其他验证节点
+在Shredder生成Shreds之后，同一份Shreds被交付给Broadcast Stage，由Turbine协议负责扩散至网络中的其他验证节点：
+
+- 起点分发：Leader将新生成的 Shreds 发送给拓扑树的第一层直接下游节点
+- 带宽优化：依赖Turbine的分层树形结构，Leader只需发送给少量节点，后续由这些节点继续向下转发，降低Leader带宽压力
+- 完整性保障：在广播过程中，Shreds自带的SlotID、索引、父哈希等元信息确保接收方能验证顺序与数据一致性
+- 衔接TVU：下游节点接收到Shreds后，会写入各自Blockstore并进入TVU流程，继续完成验证、回放与共识
+
+
+
+## 3.4 验证节点交易处理(TVU)：ShredFetch → ShredSigVerify → Retransmit → ShredInsert → ReplayStage → TransactionStatusService
+验证节点接收到Shred后，交由TVU（Transaction Validation Unit）进行处理。TVU的职责是将这些Shreds重新组合成Entry，并验证其完整性和合法性，然后在本地模拟执行交易（Replay），构建Fork树，最后进入共识阶段
+### 3.4.1 Upstream Validators：
+这些是通过Turbine网络从 Leader 或其他中继节点向本节点发送 Shreds 的节点。使用UDP广播方式，每个验证节点收到部分或全部 Shreds
+### 3.4.2. ShredFetchStage：
+监听UDP数据包，将接收到的Shred放入本地队列，供后续线程处理
+### 3.4.3. ShredSigVerifyStage：
+验证每个Shred的签名是否来自合法的Leader（基于Slot的Leader Schedule），防止伪造数据注入
+### 3.4.4. RetransmitStage：
+将验证通过的Shred根据Turbine层级结构广播给其他验证节点（downstream），本质上是p2p relay，确保数据快速扩散  
+Turbine广播是一个分层树状网络，类似P2P的树形gossip：
+- Root Node
+  - 就是当期 Slot 的 Leader 节点
+  - 由它先生成并发出 Shreds
+- Fanout（扇出）
+  - Leader不会直接把 Shreds 发给网络里所有 Validator，而是只发给 fanout 个直接下游节点
+  - 在图上，示例fanout=3只是为了画图好看；Solana实际上fanout=200
+  - 这200个validator再继续各自扇出给它们下游的 200 个，如此层层扩散
+- 下游节点（Children）
+  - 接收到上游传来的 Shreds，会先验证，再转发给自己的下游节点
+  - 每个节点只负责自己 fanout 范围内的传播
+
+### 3.4.5. ShredInsertStage：
+将Shred插入本地的Blockstore（持久化数据库），等待足够 Shred 拼成完整 Entry 后，才进行还原与回放
+### 3.4.6 ReplayStage：
+将收到的Shred → 还原成Entry → 校验PoH哈希链是否连续正确 → 校验区块头/签名/余额等合法性 → 执行交易 → 状态更新本地Bank → 将结果写入BankForks，并触发投票条件检查 → 输出交易执行结果给TransactionStatusService。ReplayStage拿到完整的Entry后具体的几层检查：
+
+#### 3.4.6.1 PoH 连续性验证
+- 每个Entry带有leader节点计算出的第n+1次PoH的Hash值，作为对照值
+- 验证节点收到广播的Shred，先把Shred组装回Entry。然后用本地PoH Service从第n次Hash开始推进，将收到的交易序列Entry作为输入，进行一次哈希运算，计算出自己的n+1次hash
+- 如果一致，说明Leader的Entry内容（交易顺序、数量、ticks 等）和全网约定的PoH时间线相符→有效；如果不一致（比如Leader在n次hash的基础上偷偷换过交易，或篡改了顺序），那n+1次hash就绝对对不上，Entry判定无效
+
+#### 3.4.6.2 区块头/Slot 合法性检查
+- 确认重组Entry里的签名和leader身份，是否和本地维护的Leader Schedule排期一致
+- 检查区块头里的blockhash、leader私钥签名得到的公钥、Merkle root和重建后计算的信息是否对得上
+
+>什么是区块，什么时候产生区块头：区块就是slot；当slot结束时，区块头会记录最后一次blockhash、所有entry的merkle root、leader用私钥签名附带到区块头
+
+#### 3.4.6.3 交易执行与状态更新
+- 将 Entry 中的交易按顺序在本地 Bank 模拟执行：
+  - 验证交易签名
+  - 检查账户余额 / rent / ownership
+  - 按照 Sealevel 并行执行合约指令
+- 如果交易本身无效（签名错、余额不足、冲突等），该交易会标记为失败，但不会影响其他合法交易继续执行。
+
+#### 3.4.6.4 写入Bank与分叉树构建
+当节点在ReplayStage中成功完成某个slot的交易验证与执行后，会将结果写入一个新的本地Bank，作为该slot的完整账本快照，并更新到BankForks（分叉树）中，供后续的投票与共识使用。
+- 每个Bank对应一个slot，slot执行后的账户状态写入到Bank。Bank之间通过父子关系连接，形成一棵分叉树BankForks
+- 每个分叉（fork）代表一条可能的链分支，可能来自不同的Leader（如 LeaderA 或 LeaderB）。等待进入共识（Tower BFT投票），节点最终会通过投票，选择其中某一条路径延续下去
+
+#### 3.4.6.5 分叉选择与投票共识
+当生成一笔投票交易（slot 100 vote transaction）并广播出去后，下一个或若干后续slot(101)的Leader会收到验证节点广播的投票交易，并将其打包进该slot(101)。Leader将该slot(101)广播到全网后，验证节点会收到并重放这个slot(101)。在重放过程中，每个验证节点会读取其中的投票交易，并根据质押（stake）权重统计各个分叉（fork）分支的权重。如果某个分支的投票权重超过全网质押总量的2/3，该分支就会进入Confirmed状态（理论上仍有可能被回滚）。随着更多后续slot的产生和新的投票，Tower BFT 的锁定规则会逐步将Confirmed slot推进为 Root，从而最终确定区块
+
+在此过程中，如果区块执行结果不一致（例如 fork 分叉），节点会根据 Tower BFT 的投票规则选择分支：
+- 如果某个区块在验证过程中被发现错误（例如签名无效或状态冲突），验证节点将拒绝为其投票，该区块最终会被网络丢弃，下一个 Leader 节点继续出块
+- 节点会基于 Tower BFT 的锁定规则，从分叉树中选择当前支持的分支（通常是得分最高、延续最长的分支）进行投票
+- 投票的含义是“我支持这个 slot 及其所有祖先 slot”；这是对当前分支的共识表态，并不是直接采纳其他节点的结果
+- 投票会被打包成一笔投票交易，通过本地 TPU 广播，与普通交易一样进入 Leader 的区块打包流程，最终上链。
+
+
+### 3.4.9 TransactionStatusService：
+TransactionStatusService是Solana节点自带的一个后台服务，专门负责存储和提供交易执行状态的查询接口。它与Blockstore并行存在，但功能不同：
+- Blockstore：是账本存储，保存完整的 Shreds、Entry、区块数据，确保共识回放和链的完整性
+- TransactionStatusService：是状态索引库，不保存原始交易数据，而是把 ReplayStage 执行出来的结果（成功 / 失败 / 错误码 / Slot / Block 等）单独记录，方便用户快速检索是否成功上链、在哪个区块里
+
+这样设计的原因是：
+
+- 如果用户要查询一笔交易的状态，仅靠Blockstore需要从 Slot → Entry → 交易序列 → 重新执行验证，依赖回放逻辑，过程复杂且查询性能差。
+- TransactionStatusService 在交易被 ReplayStage 执行时，就顺手把结果写入轻量级索引数据库（如 RocksDB），相当于“打上标签”。
+- 之后 RPC 节点、区块浏览器、客户端钱包都可以直接调用该索引，快速返回结果。
+
+>ShredSigVerifyStage 和 RetransmitStage 都只负责“碎片级别的签名验证 + 网络转发”，不检查交易合法性；真正的“区块是否合法”“PoH 是否承接正确”“交易是否有效”等逻辑验证的是 ReplayStage
+
+
+
+# 四、Solana 的生态系统和应用场景
+
+## 4.1 热门项目
+### 4.1.1 Jupiter(跨链聚合交易平台,DeFi)
+
+Jupiter 是 Solana 生态最大的 DeFi 聚合器（Aggregator），也是目前 Solana 用户量和交易量最大的应用之一。它的定位不仅仅是一个“Swap 工具”，而是逐步扩展为 Solana 的金融入口，几乎所有 Solana 用户都会用它兑换代币
+
+**1.核心功能**
+- Swap聚合：聚合多个去中心化交易所（DEX）流动性池（如 Orca、Raydium、Serum 等）；自动寻找最优价格和路径，帮用户省 Gas、拿到最划算的兑换
+- 限价单(Limit Order)：不只是即时兑换，还支持挂单交易（类似 CEX 的体验）
+- Perpetuals永续合约：在链上做杠杆交易，类似于 Binance 的永续合约，但运行在 Solana 上，去中心化且非托管
+- Launchpad (LFG Launchpad)：新项目可以在 Jupiter 上发行代币，用户可以参与早期投资
+- API / SDK：Jupiter 向开发者开放 API 和 SDK，钱包或 Dapp 可以直接调用它的聚合服务
+
+
+**2.如何参与和使用**
+1. 准备钱包：安装一个 Solana 钱包，比如 Phantom、Backpack、Solflare，钱包里需要有一些 SOL（用来支付交易手续费）
+2. 进入 Jupiter：打开官网，连接钱包
+3. 使用 Swap 功能：选择要兑换的代币，比如 USDC → SOL，Jupiter 会自动推荐最佳兑换路径，确认后签名交易即可完成
+4. 参与 Launchpad (LFG)：如果有新项目上线，你可以用 USDC 或 SOL 参与。通常是限时、按比例分发，保证公平性。
+5. 交易合约 (Perpetuals)：如果你想尝试链上的杠杆交易，可以在 Jupiter 的 Perps 页面操作。
+6. 常用地址：
+- [官网: ](https://jup.ag) Jupiter 的主站，可以直接做代币兑换
+- [文档: ](https://station.jup.ag) 开发者文档、产品说明，适合想要深入理解 API、智能合约逻辑的人
+- [Twitter (X)：](https://x.com/JupiterExchange) 实时跟进活动、新功能发布。
+
+
+### 4.1.2 Mad Lads等(NFT)
+Mad Lads:
+![/Users/bytedance/Desktop/madlads.png](image.png)
+
+**1.项目概况**  
+Mad Lads是一个在Solana区块链上发行的PFP xNFT收藏系列，共计10,000个独一无二的数字头像（PFP, Profile Picture），创作者是Solana框架开发公司Coral，它们也是著名的Web3钱包Backpack的幕后团队，由 Armani Ferrante 和 Tristan Yver 主导
+
+**2.创新技术**：xNFT（可执行 NFT）  
+Mad Lads 是首批采用 xNFT 形式的 NFT——即内嵌可执行代码的 NFT，可在支持平台（如 Backpack）上直接执行脚本，从而提供交互能力。这让NFT从静态收藏品变为一种具有功能性与实用性的工具，例如可以用于 soul-bound inventory（灵魂绑定库存）、collection locking（集合锁定）
+- 灵魂绑定库存：xNFT可以绑定某些物品或权益在 NFT 内，不可转移，只有持有人才能使用。例如：Mad Lads NFT 可能自带一个「背包」，里面放的是你领取过的空投票据、任务奖励，别人即使买走 NFT，也不会自动拿走这些绑定物
+- 集合锁定：Mad Lads可以执行代码来验证「你是否是真正持有者」，并基于 NFT 的状态决定权限
+  
+**3.什么是可执行NFT**
+- 传统 NFT：通常只是一个「所有权证明 + 元数据（图片/音频/3D模型链接）」，本身不具备交互性。
+- xNFT（Executable NFT）：在 NFT 的基础上加入了代码逻辑（类似于小型应用），当你在 Backpack 钱包（Coral 团队开发）中打开它时，NFT 不仅是图片，还能“运行”代码，提供功能。所以，Mad Lads 是第一批真正实现 “NFT = 应用” 的系列。
+
+
+## 4.2 常见Solana钱包工具
+1. Phantom
+- 最流行的钱包，类似以太坊的MetaMask
+- 提供浏览器插件、iOS/Android应用
+- 功能：转账、质押、NFT 管理、集成内置 Swap
+- 界面友好，非常适合新手
+
+2. Solflare
+- 官方早期推荐的钱包
+- 支持浏览器插件、Web 钱包、移动端
+- 更专业，支持硬件钱包Ledger
+
+3. Backpack
+- Mad Lads背后的钱包
+- 强调 xNFT（可执行 NFT） 生态
+- 除了常规功能，还能把 NFT 当成“小应用”直接运行
+
+
+# 五、Solana 面临的挑战与争议
+## 5.1 网络稳定性与宕机频发
+- 自 2024 年以来，Solana 又出现多次网络宕机事件，尤其在正式宣布移除“beta”标记前触发关键故障，重燃社区对其可靠性的质疑。
+- 2024 年 2 月 6 日的一次宕机持续超过五小时，引发交易所暂停充值提现、用户与行业不满爆发。
+- 历史上大量宕机事件：从 2021 至今，包括记忆泄露、缓存错误等多种技术原因导致的网络中断，严重影响平台对金融级服务的承载能力。
+
+## 5.2 去中心化程度被质疑（验证节点集中）
+- 运行 Solana 验证节点所需硬件资源极高（128GB+ RAM 和企业级 SSD、强 CPU），导致节点运营成本高昂，验证权集中，对去中心化构成威胁。
+- 初始代币分配倾向基金与团队内部、FTX 控股比例高，集中权益引发市场对治理与控制权的质疑。
+
+## 5.3 通胀压力与经济模型争议
+- SOL 通胀率持续高企（2024 年仍达 ~5%，每日发行约 73,000 SOL），即便销毁部分费用，通胀与奖励结构令未质押者资产被稀释，引发持币者担忧。
+- 2025 年初，社区对 SIMD-0228 提案争议激烈：其旨在引入“智能发行”机制以控制通胀，但小节点运营和网络去中心化将因此受损。Solana 联合创始人支持改革，运维主管则警告可能让小节点丧失生存空间。
+
+## 5.4 “Memecoin 潮”与声誉风险
+- Solana 网络因成本低、交易快，成为 memecoin 大本营。但这种“炒作文化”容易爆发严重的金融欺诈，如近期与阿根廷“Libra”风波相关的 rug pull，SOL 价格一度暴跌 15%
+- 更令人警醒的是大量带有种族歧视、纳粹符号等恶意 memecoin 在链上流通，引发舆论对链上治理的伦理拷问
+
+## 5.5 监管障碍与 ETF 推进缓慢
+- 多家资管公司（如 Fidelity、Bitwise、21Shares、VanEck、Grayscale、CoinShares、Franklin Templeton）已提出富有竞争力的 Solana（SOL）现货 ETF 申请，并在 2025 年不断补充修改申请材料（如 S-1 表格）以回应 SEC 的监管要求。
+- SEC 对这些申请普遍采取延期处理。截至 2025 年 8 月，决策节点一再推迟，Solana ETF 的最终决定现在预计将在 2025 年十月中旬前作出（Bitwise、21Shares 等产品的截止日为 10 月 16）。
+
+
+# 常见问题：
+**1.为什么“Entry的集合”类比是“区块”，而不是单个 entry / slot / shred / tick？**
+
+Solana有“区块”(Entry集合)，但它不像比特币或以太坊那样先一次性打包完整区块再全网广播，而是采用连续流式构建（continuous block building）的方式：边接收交易、边执行、边生成区块数据并即时广播
+
+| 概念        | 作用            | 与“区块”的关系                         |
+| --------- | ------------------------------ | --------------------------------- |
+| **Entry** | Leader 把一批交易 + 元数据打包成的最小可执行单元  | 相当于比特币的“交易列表”，但粒度更小；多个 entry 才组成一个完整的“区块”。        |
+| **Slot**  | 固定 400 ms 的时间片     | 一个 slot 通常只产生 **一个** block（即该 slot 内所有 entry 的集合），slot 是区块的 **时间边界**。 |
+| **Shred** | 为了网络传输，把一个 entry 再切成更小的 UDP 报文 | 只是传播手段，不是逻辑上的“区块”。     |
+| **Tick**  | PoH 里的“时间戳心跳”，无交易时也会生成   | 仅用于证明时间流逝，可出现在 entry 内，不直接对应区块。  |
+
+
+**2.PoH记录的只是时间吗，意义？为什么不能只用系统时间戳？**
+- 是的，PoH 只是一条时间链（哈希链），它的作用是：用加密哈希证明“某件事在某件事之后发生”，而不依赖全网一致的系统时间或共识。
+- 系统时间在分布式网络中容易被篡改或不一致。PoH 提供了一个「无需信任」的顺序性来源。
+
+
+**3.GossipService是什么，有什么作用？**
+Solana 的底层 P2P 网络协议。传播节点信息、vote、block metadata。通过它将 Vote Transaction 发给其他节点。也接收来自他人的投票、状态同步信息。
+
+
+
+
+# 附录资料：
+
+Solana白皮书 https://solana.com/solana-whitepaper.pdf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
